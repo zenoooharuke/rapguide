@@ -1,0 +1,25 @@
+{
+    "Electric Drill": {
+        "category": "Tool",
+        "issues": "Overheating, Loose bit",
+        "solutions": "Let it cool, Tighten drill bit",
+        "safety": "Wear gloves, eye protection"
+    },
+    "Printer": {
+        "category": "Device",
+        "issues": "Paper jam, Low ink",
+        "solutions": "Clean rollers, Refill ink",
+        "safety": "Keep dry, power off before the maintenance"
+    },
+    "Router": {
+        "category": "Device",
+        "issues": "No internet, Overheating",
+        "solutions": "Restart device, Cool down",
+        "safety": "Keep ventilated"
+    },
+    "Monitor": {
+        "category": "Device",
+        "issues": "Power supply"
+    }
+
+}

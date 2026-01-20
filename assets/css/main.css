@@ -1,0 +1,605 @@
+/* =========================================
+   1. Fonts & Reset
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Saira:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================================
+   2. Global Styles
+   ========================================= */
+body {
+    font-family: 'Saira', sans-serif;
+    background-color: #050505;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* =========================================
+   3. Main Layout & Background
+   ========================================= */
+.main {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    /* Dark gradient overlay on the image for better text readability */
+    background: linear-gradient(to bottom, rgba(5, 5, 10, 0.8), rgba(5, 5, 10, 0.9)), url('../img/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* =========================================
+   4. Navigation Bar
+   ========================================= */
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.navbar {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+
+.header {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    color: #065ae0;
+    text-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+    margin-top: 5px;
+    padding: 0 15px;
+}
+
+.title br, p {
+    font-family: 'Bebas Neue', cursive;
+    font-size: sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+    color: white;
+    padding-left: 5px;
+}
+
+/* Download Button */
+.apk-download a {
+    display: inline-block;
+    padding: 8px 25px;
+    background: transparent;
+    border: 1px solid #ffffff;
+    color: #e5e7eb;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.apk-download a:hover {
+    background: #1b3ff291;
+    opacity: 80%;
+    color: #ffff;
+    box-shadow: 0 0 20px rgba(170, 190, 191, 0.4);
+}
+
+/* Contact Button */
+#contact-btn {
+    display: inline-block;
+    padding: 8px 25px;
+    background: transparent;
+    border: 1px solid #ffffff;
+    color: #e5e7eb;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    font-family: 'Saira', sans-serif;
+    text-decoration: none;
+}
+
+#contact-btn:hover {
+    background: #1b3ff291;
+    opacity: 80%;
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
+}
+
+/* =========================================
+   4.1. Nav Actions (Profile & Sign Up)
+   ========================================= */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#login-btn {
+    display: inline-block;
+    padding: 8px 25px;
+    background: transparent;
+    color: #ffffff;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    border: 1px solid #ffffff;
+}
+
+#login-btn:hover {
+    background: #1b3ff291;
+    color: #ffff;
+    opacity: 80%;
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
+}
+
+/* =========================================
+   4.2. Profile Menu and Dropdown Content
+   ========================================= */
+.sidebar-profile {
+    display: none; /* Controlled by JS */
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* New Toggle Header */
+.profile-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+    border-radius: 5px;
+}
+
+.profile-toggle:hover {
+    background: rgba(183, 183, 183, 0.05);
+}
+
+@keyframes avatarPulse {
+    0% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); border-color: rgba(67, 90, 223, 0.897); }
+    50% { box-shadow: 0 0 20px rgba(4, 122, 232, 0.8); border-color: #2849f0; }
+    100% { box-shadow: 0 0 10px rgb(255, 255, 255); border-color: rgba(249, 255, 255, 0.946); }
+}
+
+.sidebar-profile .profile-avatar {
+    width: 50px; /* Smaller size */
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #dfeaeb;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgb(239, 245, 245);
+    transition: all 0.3s ease;
+    animation: avatarPulse 3s infinite ease-in-out;
+}
+
+.sidebar-profile .profile-avatar:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(4, 104, 255, 0.8);
+}
+
+.sidebar-profile .profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Dropdown Arrow */
+.dropdown-icon {
+    color: #eef0f0;
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.sidebar-profile.active .dropdown-icon {
+    transform: rotate(180deg);
+}
+
+/* Links Container */
+.profile-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.sidebar-profile.active .profile-links {
+    display: flex;
+}
+
+.profile-links a {
+    font-size: 0.95rem;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.profile-links a:last-child {
+    border-bottom: none;
+}
+
+/* =========================================
+   7. Profile & Settings Pages
+   ========================================= */
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+
+.settings-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    width: 100%;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+}
+
+.settings-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(0, 243, 255, 0.4);
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.setting-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.setting-icon {
+    color: #00f3ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.settings-label {
+    color: #e0e0e0;
+    font-size: 1.1rem;
+    font-family: 'Saira', sans-serif;
+    font-weight: 500;
+}
+
+/* Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: .4s;
+    border-radius: 34px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: #888;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: rgba(0, 243, 255, 0.15);
+    border-color: #00f3ff;
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+}
+
+input:checked + .slider:before {
+    transform: translateX(24px);
+    background-color: #00f3ff;
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.8);
+}
+/* =========================================
+   5. Sidebar
+   ========================================= */
+#toggle-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid rgb(255, 255, 255);
+    font-size: 1.5rem;
+    padding: 5px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#toggle-btn:hover {
+    background: #1b3ff291;
+    color: #ffffff;
+}
+
+.sidebar-section {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 260px;
+    height: 100vh;
+    background: rgba(10, 10, 15, 0.95);
+    border-right: 1px solid rgba(19, 29, 217, 0.514);
+    padding-top: 100px;
+    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 900;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar-section.active {
+    left: 0;
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar-menu {
+    font-family: 'Bebas Neue', cursive;
+    color: #235ada;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.sidebar-section a {
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    color: #fff;
+    font-size: 1.1rem;
+    transition: 0.3s;
+    border-left: 3px solid transparent;
+}
+
+.sidebar-section a:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 3px solid #1b3ff291;
+}
+
+.sidebar-credits {
+    margin-top: 200px;
+    padding-top: 15px;
+    border-top: 1px solid #aaa;
+    font-size: 0.8em;
+    text-align: center;
+    position: sticky;
+    top: 0;
+}
+
+.sidebar-credits p {
+    margin: 10px;
+    font-family: 'Saira', sans-serif;
+    font-size: 1rem;
+}
+
+/* =========================================
+   6. Main Content & Features
+   ========================================= */
+.information-name {
+    margin-top: 120px; /* Space for fixed navbar */
+    text-align: center;
+    padding: 0 20px;
+}
+
+.information-name h2 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 3.2rem;
+    color: #ffff;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+    text-shadow: 1px 2px 0 #235ada;
+}
+
+.information-name h3 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 4.2rem;
+    color: #235ada;
+    letter-spacing: 3px;
+    text-shadow: 1px 2px 0 #ffffff;
+}
+
+.note p {
+    font-family: 'Arial', cursive;
+    font-size: 1.1rem;
+    color: #ccc;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 25px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: inline-block;
+}
+
+.selection-box {
+    margin-top: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+    flex-wrap: wrap;
+    gap: 35px;
+}
+
+.wrapper, .wrapper-two, .wrapper-three {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 30px 40px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+    max-width: 360px;
+    width: 100%;
+    flex: 1 1 300px;
+}
+
+.wrapper:hover, .wrapper-two:hover, .wrapper-three:hover {
+    transform: translateY(-5px);
+    border-color: rgba(14, 116, 241, 0.595);
+}
+
+.note-message, .information-note, .tutorial-note {
+    font-family: 'Saira', sans-serif;
+    color: #bbb;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* =========================================
+   7. Main Content Header
+   ========================================= */
+.box-header {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2rem;
+    color: #2876eb;
+    margin-bottom: 15px;
+}
+
+.box-header-two {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2rem;
+    color: #2876eb;
+    margin-bottom: 16px;
+}
+
+.box-header-three h4 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2rem;
+    color: #2876eb;
+    margin-bottom: 15px;
+}
+
+.box-header-three a {
+    text-decoration: none;
+    margin: 10px;
+    color: #2876eb;
+}
+
+/* =========================================
+   9. Responsive Design (Mobile)
+   ========================================= */
+@media screen and (max-width: 440px) {
+    .navbar {
+        height: auto;
+        padding: 18px 0;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .apk-download a {
+        font-size: 0.8rem;
+    }
+
+    #login-btn {
+        font-size: 0.8rem;
+    }
+
+
+    #contact-btn {
+        font-size: 0.8rem;
+    }
+
+    .title {
+        padding-left: 60px;
+        font-size: 1.8rem;
+    }
+
+    .title p {
+        padding-right: 5px;
+        font-size: 0.6rem;
+    }
+
+    .information-name {
+        margin-top: 180px; /* Adjust for taller fixed navbar */
+    }
+
+    .information-name h2 {
+        font-size: 2rem;
+    }
+
+    .information-name h3 {
+        font-size: 2.8rem;
+    }
+
+    .note p {
+        font-size: 1rem;
+    }
+
+    #toggle-btn {
+        font-size: 1.3rem;
+    }
+
+    .selection-box {
+        padding: 0 20px 50px 20px;
+    }
+}

@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Saira:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.604), rgba(0, 0, 0, 0.649)), url('second.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+/* Main Layout Design */
+.section-box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Sign Up container */
+.container-signup {
+    width: 380px; /* slightly wider for extra field */
+    padding: 35px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(14px);
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.25);
+    box-shadow: 0 0 40px rgba(0, 234, 255, 0.15);
+    color: #fff;
+}
+
+/* Header */
+.signup-header {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+/* Inputs */
+.container-signup input {
+    width: 100%;
+    margin-bottom: 18px;
+    padding: 12px 15px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 10px;
+    outline: none;
+    color: white;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.container-signup input::placeholder {
+    color: #ffffff;
+}
+
+.container-signup input:focus {
+    border-color: #fdfdfd;
+    box-shadow: 0 0 10px #000;
+}
+
+/* Button */
+.container-signup button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background: linear-gradient(135deg, #0849ca, #0066ff);
+    border: none;
+    border-radius: 25px;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.container-signup button:hover {
+    box-shadow: 0 0 20px #e5e8e8;
+    transform: translateY(-2px);
+}
+
+/* Label section (same as login) */
+.label {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.label .message {
+    font-family: 'Arial', sans-serif;
+    color: #ffffff;
+}
+
+.label a {
+    font-family: 'Arial', sans-serif;
+    color: #f4f6f7;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.label a:hover {
+    text-decoration: underline;
+}
